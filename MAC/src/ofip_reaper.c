@@ -77,7 +77,7 @@ capture...");
       else
 	{
 	  printf ("You must enter a 'y' or 'n'\n");
-	  fflush (stdin);
+	  while ((ch = getchar ()) != '\n' && ch != EOF);
 	}
     }
 
