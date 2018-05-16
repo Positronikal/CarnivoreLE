@@ -33,11 +33,11 @@ obj/
 # Executable directories/files
 bin/
 #*.exe
-#*.out
-#*.app
-#*.i*86
-#*.x86_64
-#*.hex
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
 handle.exe
 handle64.exe
 
@@ -46,6 +46,7 @@ handle64.exe
 *.su
 *.idb
 *.pdb
+*.xml
 
 # Kernel Module Compile Results
 *.mod*
@@ -54,3 +55,6 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Mac trash
+.DS_Store
