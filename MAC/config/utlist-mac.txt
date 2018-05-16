@@ -1,0 +1,15 @@
+/bin/chmod
+/bin/ps
+/bin/sh
+/sbin/ifconfig
+/sbin/kextunload
+/usr/bin/dscl
+/usr/bin/find
+/usr/bin/kextutil
+/usr/bin/sudo
+/usr/bin/unzip
+/usr/bin/who
+/usr/sbin/chown
+/usr/sbin/lsof
+/usr/sbin/netstat
+/usr/sbin/system_profiler

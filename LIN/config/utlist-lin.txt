@@ -1,0 +1,11 @@
+/bin/cat
+/bin/netstat
+/bin/ps
+/sbin/ifconfig
+/usr/bin/dpkg
+/usr/bin/lshw
+/usr/bin/lsof
+/usr/bin/rpm
+/usr/bin/sudo
+/usr/bin/who
+/usr/bin/find
