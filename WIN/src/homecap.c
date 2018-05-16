@@ -35,7 +35,7 @@ homecap ()
 {
   char userhome[PATH_MAX];
   int done;
-  char ch;
+  int ch;
 
   done = FALSE;
   while (!done)

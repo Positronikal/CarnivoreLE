@@ -40,7 +40,7 @@ int
 sw_reaper ()
 {
   int done;
-  char ch;
+  int ch;
 
   done = FALSE;
   while (!done)

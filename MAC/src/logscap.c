@@ -35,7 +35,7 @@ int
 logscap ()
 {
   int done;
-  char ch;
+  int ch;
   char logsdir1[PATH_MAX];
   char logsdir2[PATH_MAX];
 

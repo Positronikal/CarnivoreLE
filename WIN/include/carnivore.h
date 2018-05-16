@@ -27,7 +27,7 @@
 
 /* Constants */
 #define PROGNAME "CarnivoreLE for Windows"
-#define PROGVERS "0.0.10"
+#define PROGVERS "0.0.11"
 #define FALSE 0
 #define TRUE !FALSE
 

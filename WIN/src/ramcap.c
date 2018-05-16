@@ -34,7 +34,7 @@ int
 ramcap ()
 {
   int done;
-  char ch;
+  int ch;
   char ramname[PATH_MAX];
 
   done = FALSE;
