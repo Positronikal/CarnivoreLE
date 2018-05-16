@@ -1,0 +1,106 @@
+.TH CarnivoreLE 1 "April 2018" 0.0.0 "CarnivoreLE Live Triage"
+
+.SH NAME
+carnivore - the CarnivoreLE live forensic triage tool
+
+.SH SYNOPSIS
+carnivore [
+.B -v
+,
+.B --version
+,
+.B -h
+,
+.B --help
+]
+
+.SH DESCRIPTION
+.B carnivore
+captures live data, especially volatile data, from a running
+computer. This includes options to create a forensic logical image of
+the system RAM, home directory, and logs directory. The Windows
+registry may also be imaged on those systems. Imaging is accomplished
+with Advanced Forensic Format 4 (AFF4).
+
+There are three different versions, one each for GNU/Linux, Macintosh,
+and Windows.
+
+.B carnivore
+is ran without options unless version or help information is
+desired. carnivore is designed to be ran from an external device
+attached
+
+.SH OPTIONS
+.B -v
+,
+.B --version
+.RS
+Display version information and exit.
+.RE
+
+.B -h
+,
+.B --help
+.RS
+Display help information and exit.
+.RE
+
+.SH OS X/MacOS ONLY
+Imaging requires specific ownership and permissions to be passed to the
+operating system. Allow this by following these steps:
+.br
+.RS
+1. In Finder, select the MACTOOLS volume.
+.br
+2. Choose File > Get Info.
+.br
+3. Click the disclosure triangle next to Sharing & Permissions.
+.br
+4. If necessary, click the lock icon and enter a username and password
+that can use sudo.
+.br
+5. Uncheck the "Ignore ownership on this volume" checkbox. You DO NOT
+want to ignore ownership.
+.RE
+
+Loading the kernel extension (kext) requires user approval and will
+generate a "System Extension Blocked" notification. When this occurs,
+follow these steps:
+.br
+.RS
+1. Open System Preferences > Security & Privacy.
+.br
+2. If necessary, click the lock icon and enter a username and password
+that can use sudo.
+.br
+3. Select "App Store & identified developers" button.
+.br
+4. Select "Allow" for Adam Sindelar's kext.
+.RE
+
+.SH BUGS
+Bug reports should be filed to the Github repository:
+.RS
+<https://github.com/Positronikal/CarnivoreLE/issues>
+.RE
+
+Feature requests are handled the same way.
+
+.SH AUTHOR
+Written by Hoyt Harness.
+
+.SH COPYRIGHT
+License  GPLv3+: GNU GPL version 3 or later
+.RS
+<https://www.gnu.org/licenses/gpl.html>.
+.RE
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+.SH SEE ALSO
+More information at at:
+.RS
+<https://positronikal.github.io/>
+.RE
+or available in the application root under docs/.
+
