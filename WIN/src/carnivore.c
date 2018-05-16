@@ -43,8 +43,6 @@ int
 main (int argc, char *argv[])
 {
   /* Check command line options */
-  int c;
-
   while (1)
     {
       int option_index = 0;
@@ -58,7 +56,7 @@ main (int argc, char *argv[])
          const char *optstring,
          const struct option *longopts,
          int *longindex); */
-      c = getopt_long (argc, argv, "vh", long_options, &option_index);
+      int c = getopt_long (argc, argv, "vh", long_options, &option_index);
       if (c == -1)
 	break;
 
