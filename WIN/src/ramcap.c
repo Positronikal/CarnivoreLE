@@ -24,6 +24,7 @@
 #include <limits.h>
 #include "../include/carnivore.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 extern FILE *logfile_a;
 extern char logname[PATH_MAX];

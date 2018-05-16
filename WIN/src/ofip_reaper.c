@@ -24,6 +24,7 @@
 #include <limits.h>
 #include <stdio.h>
 #include "../include/carnivore.h"
+#include <stdlib.h>
 
 int ofip_r (void);
 

@@ -24,6 +24,7 @@
 #include <limits.h>
 #include <stdio.h>
 #include "../include/carnivore.h"
+#include <stdlib.h>
 
 int cu_r (void);
 extern FILE *logfile_a;
