@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="carnivore" />
+		<Option pch_mode="2" />
+		<Option compiler="mingw_compiler" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/carnivore" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option external_deps="thirdparty/winpmem.exe;thirdparty/hashdeep64.exe;thirdparty/handle64.exe;thirdparty/win-find-home.bat;" />
+				<Option type="1" />
+				<Option compiler="mingw_compiler" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/carnivore" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="mingw_compiler" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="include/carnivore.h" />
+		<Unit filename="src/carnivore.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/casedata.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/cu_reaper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/gettime.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/homecap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/logscap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/nc_reaper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/net_reaper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/of_reaper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/ofip_reaper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/os_reaper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/ramcap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/rp_reaper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sw_reaper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sys_reaper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/us_reaper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/utverify.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/vertime.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<lib_finder disable_auto="1" />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

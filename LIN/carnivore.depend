@@ -1,0 +1,118 @@
+# depslib dependency file v1.0
+1518706176 source:/home/hharness/dev/CarnivoreLE/src/carnivore.c
+	<limits.h>
+	<stdio.h>
+	<dirent.h>
+	<sys/stat.h>
+	<sys/types.h>
+	"../include/carnivore.h"
+	<unistd.h>
+
+1518706411 /home/hharness/dev/CarnivoreLE/include/carnivore.h
+
+1518480407 source:/home/hharness/dev/CarnivoreLE/src/casedata.c
+	<stdio.h>
+	<limits.h>
+	<stdlib.h>
+	<string.h>
+
+1518480407 source:/home/hharness/dev/CarnivoreLE/src/gettime.c
+	<time.h>
+	<limits.h>
+	<stdio.h>
+
+1518480407 source:/home/hharness/dev/CarnivoreLE/src/homecap.c
+	<limits.h>
+	"../include/carnivore.h"
+	<stdio.h>
+	<stdlib.h>
+
+1518705039 source:/home/hharness/dev/CarnivoreLE/src/hw_reaper.c
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+	"../include/carnivore.h"
+
+1518706224 source:/home/hharness/dev/CarnivoreLE/src/kv_reaper.c
+	<linux/limits.h>
+	<stdio.h>
+	<stdlib.h>
+	<limits.h>
+	"../include/carnivore.h"
+
+1518480407 source:/home/hharness/dev/CarnivoreLE/src/logscap.c
+	<limits.h>
+	"../include/carnivore.h"
+	<stdio.h>
+	<stdlib.h>
+
+1518706187 source:/home/hharness/dev/CarnivoreLE/src/lu_reaper.c
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+	"../include/carnivore.h"
+
+1518706353 source:/home/hharness/dev/CarnivoreLE/src/nc_reaper.c
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+	"../include/carnivore.h"
+
+1518701625 source:/home/hharness/dev/CarnivoreLE/src/net_reaper.c
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+	"../include/carnivore.h"
+
+1518706324 source:/home/hharness/dev/CarnivoreLE/src/of_reaper.c
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+	"../include/carnivore.h"
+
+1518709762 source:/home/hharness/dev/CarnivoreLE/src/ofip_reaper.c
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+	"../include/carnivore.h"
+
+1518480407 source:/home/hharness/dev/CarnivoreLE/src/ramcap.c
+	<limits.h>
+	"../include/carnivore.h"
+	<stdio.h>
+	<stdlib.h>
+
+1518706259 source:/home/hharness/dev/CarnivoreLE/src/rp_reaper.c
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+	"../include/carnivore.h"
+
+1518705600 source:/home/hharness/dev/CarnivoreLE/src/sw_reaper.c
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+	<sys/types.h>
+	<dirent.h>
+	<errno.h>
+	<string.h>
+	"../include/carnivore.h"
+
+1518704709 source:/home/hharness/dev/CarnivoreLE/src/us_reaper.c
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+	"../include/carnivore.h"
+
+1518480407 source:/home/hharness/dev/CarnivoreLE/src/utverify.c
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+
+1518480407 source:/home/hharness/dev/CarnivoreLE/src/vertime.c
+	<stdio.h>
+	<limits.h>
+	<stdlib.h>
+	<string.h>
+	"../include/carnivore.h"
+

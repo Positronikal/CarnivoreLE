@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1518737012 source:/home/hharness/dev/CarnivoreLE/src/carnivore.c
+	<windows.h>
+	<limits.h>
+	<stdio.h>
+	<dirent.h>
+	<sys/stat.h>
+	<sys/types.h>
+	"../include/carnivore.h"
+	<sys/unistd.h>
+	<time.h>
+
+1518737030 /home/hharness/dev/CarnivoreLE/include/carnivore.h
+
