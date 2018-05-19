@@ -27,6 +27,7 @@
 #include <stdlib.h>
 
 int cu_r (void);
+
 extern FILE *logfile_a;
 extern char logname[PATH_MAX];
 extern char outputdir[PATH_MAX];
@@ -45,42 +46,41 @@ cu_reaper ()
       ch = getchar ();
 
       if (ch == 'N' || ch == 'n')
-	{
-	  printf ("Skipping current user details...\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :cu_reaper module skipped.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+        {
+          printf ("Skipping current user details...\n\n");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :cu_reaper module skipped.\n");
+          fclose (logfile_a);
+          done = TRUE;
+        }
       else if (ch == 'Y' || ch == 'y')
-	{
-	  printf ("Starting current user details capture...");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :cu_reaper module started.\n");
-	  fclose (logfile_a);
+        {
+          printf ("Starting current user details capture...");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :cu_reaper module started.\n");
+          fclose (logfile_a);
 
-	  /* List currently logged on users */
-	  cu_r ();
+          /* List currently logged on users */
+          cu_r ();
 
-	  printf ("done.\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :cu_reaper module complete.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+          printf ("done.\n\n");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :cu_reaper module complete.\n");
+          fclose (logfile_a);
+          done = TRUE;
+        }
       else
-	{
-	  printf ("You must enter a 'y' or 'n'\n");
-	  while ((ch = getchar ()) != '\n' && ch != EOF);
-	}
+        {
+          printf ("You must enter a 'y' or 'n'\n");
+          while ((ch = getchar ()) != '\n' && ch != EOF);
+        }
     }
 
   /* Flush input buffer */
-  while ((ch = getchar ()) != '\n' && ch != EOF)
-    /* discard */ ;
+  while ((ch = getchar ()) != '\n' && ch != EOF);
 
   return (0);
 }
@@ -92,8 +92,8 @@ cu_r ()
   char currentuser[PATH_MAX];
 
   snprintf (currentuser, sizeof (currentuser),
-	    "C:\\Windows\\System32\\whoami.exe /all > %s\\currentuser.txt",
-	    outputdir);
+            "C:\\Windows\\System32\\whoami.exe /all > %s\\currentuser.txt",
+            outputdir);
   system (currentuser);
 
   return (0);

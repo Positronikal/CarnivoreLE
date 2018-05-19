@@ -36,15 +36,12 @@ vertime ()
 {
   char *vtime = malloc (9);
 
-  printf
-    ("\nCarnivore checks system time directly. To calculate the error\n");
+  printf ("\nCarnivore checks system time directly. To calculate the error\n");
   printf ("offset of this machine, verify the time via a reliable source,\n");
   printf ("such as time.nist.gov, and enter it next. The faster you're\n");
-  printf
-    ("able to enter the last time digit and press \"ENTER\", the more\n");
+  printf ("able to enter the last time digit and press \"ENTER\", the more\n");
   printf ("accurate this comparison will be. Both your timestamp and that\n");
-  printf
-    ("of Carnivore will be recorded in the history log. Enter time in\n");
+  printf ("of Carnivore will be recorded in the history log. Enter time in\n");
   printf ("24-hour format: HH:MM:SS (ex: 16:32:45)\n\n");
   printf ("Enter time when ready: ");
 

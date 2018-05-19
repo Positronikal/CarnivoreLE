@@ -46,37 +46,37 @@ us_reaper ()
       ch = getchar ();
 
       if (ch == 'N' || ch == 'n')
-	{
-	  printf ("Skipping all user accounts/UID data...\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :us_reaper module skipped.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+        {
+          printf ("Skipping all user accounts/UID data...\n\n");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :us_reaper module skipped.\n");
+          fclose (logfile_a);
+          done = TRUE;
+        }
       else if (ch == 'Y' || ch == 'y')
-	{
-	  printf ("Starting all user accounts/UID data capture...");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :us_reaper module started.\n");
-	  fclose (logfile_a);
+        {
+          printf ("Starting all user accounts/UID data capture...");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :us_reaper module started.\n");
+          fclose (logfile_a);
 
-	  /* List all user accounts/UIDs */
-	  us_r ();
+          /* List all user accounts/UIDs */
+          us_r ();
 
-	  printf ("done.\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :us_reaper module complete.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+          printf ("done.\n\n");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :us_reaper module complete.\n");
+          fclose (logfile_a);
+          done = TRUE;
+        }
       else
-	{
-	  printf ("You must enter a 'y' or 'n'\n");
-	  while ((ch = getchar ()) != '\n' && ch != EOF);
-	}
+        {
+          printf ("You must enter a 'y' or 'n'\n");
+          while ((ch = getchar ()) != '\n' && ch != EOF);
+        }
     }
 
   /* Flush input buffer */

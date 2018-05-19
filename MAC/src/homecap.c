@@ -31,8 +31,6 @@
 extern FILE *logfile_a;
 extern char logname[PATH_MAX];
 extern char outputdir[PATH_MAX];
-char *dirpath;
-char imghome[PATH_MAX];
 
 /* Home directory forensic logical imager using AFF4 */
 int
@@ -40,6 +38,8 @@ homecap ()
 {
   int done;
   int ch;
+  char *dirpath;
+  char imghome[PATH_MAX];
 
   done = FALSE;
   while (!done)
@@ -48,48 +48,48 @@ homecap ()
       ch = getchar ();
 
       if (ch == 'N' || ch == 'n')
-	{
-	  printf ("Skipping home directory imaging...\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :homedir imaging skipped.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+        {
+          printf ("Skipping home directory imaging...\n\n");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :homedir imaging skipped.\n");
+          fclose (logfile_a);
+          done = TRUE;
+        }
       else if (ch == 'Y' || ch == 'y')
-	{
-	  printf ("Starting home directory imaging ");
-	  printf ("(may take several minutes!)...\n");
-	  printf ("Files that are already in use may be locked and produce \
+        {
+          printf ("Starting home directory imaging ");
+          printf ("(may take several minutes!)...\n");
+          printf ("Files that are already in use may be locked and produce \
 warnings.\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :homedir imaging started.\n");
-	  fclose (logfile_a);
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :homedir imaging started.\n");
+          fclose (logfile_a);
 
-	  /* Get user home directory */
-	  if ((dirpath = getenv ("HOME")) == NULL)
-	    dirpath = getpwuid (getuid ())->pw_dir;
+          /* Get user home directory */
+          if ((dirpath = getenv ("HOME")) == NULL)
+            dirpath = getpwuid (getuid ())->pw_dir;
 
-	  /* Image home directory */
-	  snprintf (imghome, sizeof (imghome), "/usr/bin/sudo /bin/sh \
+          /* Image home directory */
+          snprintf (imghome, sizeof (imghome), "/usr/bin/sudo /bin/sh \
                     -c \'/usr/bin/find %s -type f | \
                     ./thirdparty/osxpmem.app/osxpmem -i @ \
                     -o %s/img_logical.aff4 -c snappy\'", dirpath, outputdir);
-	  system (imghome);
+          system (imghome);
 
-	  printf ("...done.\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :homedir imaging complete.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+          printf ("...done.\n\n");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :homedir imaging complete.\n");
+          fclose (logfile_a);
+          done = TRUE;
+        }
       else
-	{
-	  printf ("You must enter a 'y' or 'n'\n");
-	  while ((ch = getchar ()) != '\n' && ch != EOF);
-	}
+        {
+          printf ("You must enter a 'y' or 'n'\n");
+          while ((ch = getchar ()) != '\n' && ch != EOF);
+        }
     }
 
   /* Flush input buffer */

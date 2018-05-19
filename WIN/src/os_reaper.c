@@ -42,43 +42,42 @@ os_reaper ()
   done = FALSE;
   while (!done)
     {
-      printf
-	("Capture detailed OS information? /systeminfo.exe, findstr.exe/ \
+      printf ("Capture detailed OS information? /systeminfo.exe, findstr.exe/ \
 [y/n]\n");
       ch = getchar ();
 
       if (ch == 'N' || ch == 'n')
-	{
-	  printf ("Skipping detailed OS information...\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :os_reaper module skipped.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+        {
+          printf ("Skipping detailed OS information...\n\n");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :os_reaper module skipped.\n");
+          fclose (logfile_a);
+          done = TRUE;
+        }
       else if (ch == 'Y' || ch == 'y')
-	{
-	  printf ("Starting detailed OS information capture...");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :os_reaper module started.\n");
-	  fclose (logfile_a);
+        {
+          printf ("Starting detailed OS information capture...");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :os_reaper module started.\n");
+          fclose (logfile_a);
 
-	  /* Detail OS information */
-	  os_r ();
+          /* Detail OS information */
+          os_r ();
 
-	  printf ("done.\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :os_reaper module complete.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+          printf ("done.\n\n");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :os_reaper module complete.\n");
+          fclose (logfile_a);
+          done = TRUE;
+        }
       else
-	{
-	  printf ("You must enter a 'y' or 'n'\n");
-	  while ((ch = getchar ()) != '\n' && ch != EOF);
-	}
+        {
+          printf ("You must enter a 'y' or 'n'\n");
+          while ((ch = getchar ()) != '\n' && ch != EOF);
+        }
     }
 
   /* Flush input buffer */
@@ -94,7 +93,8 @@ os_r ()
   char kver[PATH_MAX];
 
   snprintf (kver, sizeof (kver), "C:\\Windows\\System32\\systeminfo.exe  | \
-            C:\\Windows\\System32\\findstr.exe /C:\"OS\" > %s\\os.txt", outputdir);
+            C:\\Windows\\System32\\findstr.exe /C:\"OS\" > %s\\os.txt",
+            outputdir);
   system (kver);
 
   return (0);

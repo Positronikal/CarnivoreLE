@@ -41,43 +41,43 @@ ofip_reaper ()
   done = FALSE;
   while (!done)
     {
-      printf
-	("\nCapture data on all open files assigned IP addresses? /lsof/ [y/n]\n");
+      printf ("\nCapture data on all open files assigned IP addresses? /lsof/ \
+[y/n]\n");
       ch = getchar ();
 
       if (ch == 'N' || ch == 'n')
-	{
-	  printf ("Skipping all open files assigned IP addresses...\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :ofip_reaper module skipped.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+        {
+          printf ("Skipping all open files assigned IP addresses...\n\n");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :ofip_reaper module skipped.\n");
+          fclose (logfile_a);
+          done = TRUE;
+        }
       else if (ch == 'Y' || ch == 'y')
-	{
-	  printf ("Starting all open files assigned IP addresses data \
+        {
+          printf ("Starting all open files assigned IP addresses data \
 capture...");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :ofip_reaper module started.\n");
-	  fclose (logfile_a);
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :ofip_reaper module started.\n");
+          fclose (logfile_a);
 
-	  /* List all open files w/ IP addresses */
-	  ofip_r ();
+          /* List all open files w/ IP addresses */
+          ofip_r ();
 
-	  printf ("done.\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :ofip_reaper module complete.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+          printf ("done.\n");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :ofip_reaper module complete.\n");
+          fclose (logfile_a);
+          done = TRUE;
+        }
       else
-	{
-	  printf ("You must enter a 'y' or 'n'\n");
-	  while ((ch = getchar ()) != '\n' && ch != EOF);
-	}
+        {
+          printf ("You must enter a 'y' or 'n'\n");
+          while ((ch = getchar ()) != '\n' && ch != EOF);
+        }
     }
 
   /* Flush input buffer */

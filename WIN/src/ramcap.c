@@ -45,43 +45,42 @@ ramcap ()
       ch = getchar ();
 
       if (ch == 'N' || ch == 'n')
-	{
-	  printf ("Skipping RAM imaging...\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :RAM capture skipped.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+        {
+          printf ("Skipping RAM imaging...\n\n");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :RAM capture skipped.\n");
+          fclose (logfile_a);
+          done = TRUE;
+        }
       else if (ch == 'Y' || ch == 'y')
-	{
-	  printf ("Starting RAM imaging ");
-	  printf ("(may take several minutes!)...\n");
-	  printf ("Files that are already in use may be locked and produce \
-warnings.\n");
-	  printf ("***ANY WARNINGS CAN BE IGNORED***\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :RAM imaging started.\n");
-	  fclose (logfile_a);
+        {
+          printf ("Starting RAM imaging ");
+          printf ("(may take several minutes!)...\n");
+          printf ("Files that are already in use may be locked and produce \
+warnings.\n\n");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :RAM imaging started.\n");
+          fclose (logfile_a);
 
-	  /* Ram capture */
-	  snprintf (ramname, sizeof (ramname), ".\\thirdparty\\winpmem.exe \
+          /* Ram capture */
+          snprintf (ramname, sizeof (ramname), ".\\thirdparty\\winpmem.exe \
                     -o %s\\img_logical.aff4 -c snappy", outputdir);
-	  system (ramname);
+          system (ramname);
 
-	  printf ("...done.\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :RAM imaging complete.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+          printf ("...done.\n\n");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :RAM imaging complete.\n");
+          fclose (logfile_a);
+          done = TRUE;
+        }
       else
-	{
-	  printf ("You must enter a 'y' or 'n'\n");
-	  while ((ch = getchar ()) != '\n' && ch != EOF);
-	}
+        {
+          printf ("You must enter a 'y' or 'n'\n");
+          while ((ch = getchar ()) != '\n' && ch != EOF);
+        }
     }
 
   /* Flush input buffer */

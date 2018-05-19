@@ -45,32 +45,33 @@ main (int argc, char *argv[])
     {
       int option_index = 0;
       static struct option long_options[] = {
-	{"version", no_argument, 0, 'v'},
-	{"help", no_argument, 0, 'h'},
-	{0, 0, 0, 0}
+        {"version", no_argument, 0, 'v'},
+        {"help", no_argument, 0, 'h'},
+        {0, 0, 0, 0}
       };
 
-      /* int getopt_long (int argc, char * const argv[],
-         const char *optstring,
-         const struct option *longopts,
-         int *longindex); */
+      /* int getopt_long (int argc,
+                          char * const argv[],
+                          const char *optstring,
+                          const struct option *longopts,
+                          int *longindex); */
       int c = getopt_long (argc, argv, "vh", long_options, &option_index);
       if (c == -1)
-	break;
+        break;
 
       switch (c)
-	{
-	case 'v':
-	  version ();
-	  exit (0);
+        {
+          case 'v':
+            version ();
+            exit (0);
 
-	case 'h':
-	  usage ();
-	  exit (0);
+          case 'h':
+            usage ();
+            exit (0);
 
-	default:
-	  break;
-	}
+          default:
+          break;
+        }
     }
 
   /* Welcome message */

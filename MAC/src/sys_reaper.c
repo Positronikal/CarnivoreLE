@@ -47,44 +47,44 @@ sys_reaper ()
       ch = getchar ();
 
       if (ch == 'N' || ch == 'n')
-	{
-	  printf ("Skipping system information and hardware/software \
+        {
+          printf ("Skipping system information and hardware/software \
 inventories...\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :sys_reaper module skipped.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :sys_reaper module skipped.\n");
+          fclose (logfile_a);
+          done = TRUE;
+        }
       else if (ch == 'Y' || ch == 'y')
-	{
-	  printf ("Starting system information and hardware/software \
+        {
+          printf ("Starting system information and hardware/software \
 inventories capture...\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :sys_reaper module started.\n");
-	  fclose (logfile_a);
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :sys_reaper module started.\n");
+          fclose (logfile_a);
 
-	  /* List systeminfo and hardware/software inventory in plain text */
-	  printf ("NOTE: sys_reaper is now running, but can be slow.\n");
-	  printf ("Pressing Ctrl-C will quit the module and Carnivore\n");
-	  printf ("will continue, but you may miss some data.\n");
-	  printf ("Features not present on the suspect device may\n");
-	  printf ("produce warnings.\n\n");
-	  sys_r ();
+          /* List systeminfo and hardware/software inventory in plain text */
+          printf ("NOTE: sys_reaper is now running, but can be slow.\n");
+          printf ("Pressing Ctrl-C will quit the module and Carnivore\n");
+          printf ("will continue, but you may miss some data.\n");
+          printf ("Features not present on the suspect device may\n");
+          printf ("produce warnings.\n\n");
+          sys_r ();
 
-	  printf ("...done.\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :sys_reaper module complete.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+          printf ("...done.\n\n");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :sys_reaper module complete.\n");
+          fclose (logfile_a);
+          done = TRUE;
+        }
       else
-	{
-	  printf ("You must enter a 'y' or 'n'\n");
-	  while ((ch = getchar ()) != '\n' && ch != EOF);
-	}
+        {
+          printf ("You must enter a 'y' or 'n'\n");
+          while ((ch = getchar ()) != '\n' && ch != EOF);
+        }
     }
 
   /* Flush input buffer */

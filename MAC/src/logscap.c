@@ -28,7 +28,6 @@
 extern FILE *logfile_a;
 extern char logname[PATH_MAX];
 extern char outputdir[PATH_MAX];
-char imglogs[PATH_MAX];
 
 /* Logs directory forensic logical imager using AFF4 */
 int
@@ -36,8 +35,8 @@ logscap ()
 {
   int done;
   int ch;
-  char logsdir1[PATH_MAX];
-  char logsdir2[PATH_MAX];
+  char imglogs1[PATH_MAX];
+  char imglogs2[PATH_MAX];
 
   done = FALSE;
   while (!done)
@@ -46,49 +45,49 @@ logscap ()
       ch = getchar ();
 
       if (ch == 'N' || ch == 'n')
-	{
-	  printf ("Skipping logs directories imaging...\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :logsdirs imaging skipped.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+	      {
+	        printf ("Skipping logs directories imaging...\n\n");
+	        gettime ();
+	        logfile_a = fopen (logname, "a");
+	        fprintf (logfile_a, "        :logscap imaging skipped.\n");
+	        fclose (logfile_a);
+	        done = TRUE;
+	      }
       else if (ch == 'Y' || ch == 'y')
-	{
-	  printf ("Starting logs directories imaging ");
-	  printf ("(may take several minutes!)...\n");
-	  printf ("Files that are already in use may be locked and produce \
+	      {
+	        printf ("Starting logs directories imaging ");
+	        printf ("(may take several minutes!)...\n");
+	        printf ("Files that are already in use may be locked and produce \
 warnings.\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :logsdirs imaging started.\n");
-	  fclose (logfile_a);
+	        gettime ();
+	        logfile_a = fopen (logname, "a");
+	        fprintf (logfile_a, "        :logscap imaging started.\n");
+	        fclose (logfile_a);
 
-	  /* Image logs directory */
-	  snprintf (logsdir1, sizeof (logsdir1), "/usr/bin/sudo /bin/sh \
+	        /* Image logs directory */
+	        snprintf (imglogs1, sizeof (imglogs1), "/usr/bin/sudo /bin/sh \
                     -c \'/usr/bin/find /private/var/log -type f | \
                     ./thirdparty/osxpmem.app/osxpmem -i @ \
                     -o %s/img_logical.aff4 -c snappy\'", outputdir);
-	  system (logsdir1);
-	  snprintf (logsdir2, sizeof (logsdir2), "/usr/bin/sudo /bin/sh \
+	        system (imglogs1);
+	        snprintf (imglogs2, sizeof (imglogs2), "/usr/bin/sudo /bin/sh \
                     -c \'/usr/bin/find /library/logs -type f | \
                     ./thirdparty/osxpmem.app/osxpmem -i @ \
                     -o %s/img_logical.aff4 -c snappy\'", outputdir);
-	  system (logsdir2);
+	        system (imglogs2);
 
-	  printf ("...done.\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :logsdirs imaging complete.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+	        printf ("...done.\n\n");
+	        gettime ();
+	        logfile_a = fopen (logname, "a");
+	        fprintf (logfile_a, "        :logscap imaging complete.\n");
+	        fclose (logfile_a);
+	        done = TRUE;
+	      }
       else
-	{
-	  printf ("You must enter a 'y' or 'n'\n");
-	  while ((ch = getchar ()) != '\n' && ch != EOF);
-	}
+	      {
+	        printf ("You must enter a 'y' or 'n'\n");
+	        while ((ch = getchar ()) != '\n' && ch != EOF);
+      	}
     }
 
   /* Flush input buffer */

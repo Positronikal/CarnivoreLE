@@ -49,37 +49,37 @@ sw_reaper ()
       ch = getchar ();
 
       if (ch == 'N' || ch == 'n')
-	{
-	  printf ("Skipping software inventory...\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :sw_reaper module skipped.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+        {
+          printf ("Skipping software inventory...\n\n");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :sw_reaper module skipped.\n");
+          fclose (logfile_a);
+          done = TRUE;
+        }
       else if (ch == 'Y' || ch == 'y')
-	{
-	  printf ("Starting software inventory...");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :sw_reaper module started.\n");
-	  fclose (logfile_a);
+        {
+          printf ("Starting software inventory...");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :sw_reaper module started.\n");
+          fclose (logfile_a);
 
-	  /* List software inventory in plain text */
-	  sw_r ();
+          /* List software inventory in plain text */
+          sw_r ();
 
-	  printf ("done.\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :sw_reaper module complete.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+          printf ("done.\n\n");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :sw_reaper module complete.\n");
+          fclose (logfile_a);
+          done = TRUE;
+        }
       else
-	{
-	  printf ("You must enter a 'y' or 'n'\n");
-	  while ((ch = getchar ()) != '\n' && ch != EOF);
-	}
+        {
+          printf ("You must enter a 'y' or 'n'\n");
+          while ((ch = getchar ()) != '\n' && ch != EOF);
+        }
     }
 
   /* Flush input buffer */
@@ -108,17 +108,17 @@ sw_r ()
   while ((entry = readdir (dir)) != NULL)
     {
       if (strcmp (entry->d_name, "dpkg") == 0)
-	{
-	  snprintf (allsw, sizeof (allsw), "/usr/bin/dpkg -l > \
+        {
+          snprintf (allsw, sizeof (allsw), "/usr/bin/dpkg -l > \
                     %s/software.txt", outputdir);
-	  system (allsw);
-	}
+          system (allsw);
+        }
       else if (strcmp (entry->d_name, "rpm") == 0)
-	{
-	  snprintf (allsw, sizeof (allsw),
-		    "usr/bin/rpm -qa > %s/software.txt", outputdir);
-	  system (allsw);
-	}
+        {
+          snprintf (allsw, sizeof (allsw),
+                    "usr/bin/rpm -qa > %s/software.txt", outputdir);
+          system (allsw);
+        }
     }
 
   if (errno && !entry)

@@ -48,56 +48,59 @@ logscap ()
       ch = getchar ();
 
       if (ch == 'N' || ch == 'n')
-	{
-	  printf ("Skipping event logs capture...\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :logs capture skipped.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+        {
+          printf ("Skipping event logs capture...\n\n");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :logs capture skipped.\n");
+          fclose (logfile_a);
+          done = TRUE;
+        }
       else if (ch == 'Y' || ch == 'y')
-	{
-	  printf ("Starting event logs capture ");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :logsget capture started.\n");
-	  fclose (logfile_a);
+        {
+          printf ("Starting event logs imaging ");
+          printf ("(may take several minutes!)...\n");
+          printf ("Files that are already in use may be locked and produce \
+warnings.\n\n");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :logsget capture started.\n");
+          fclose (logfile_a);
 
-	  /* Create Logs directory on datastore */
-	  DIR *dhandle;
-	  dhandle = opendir (outputdir);
-	  snprintf (logsoutdir, sizeof (logsoutdir), "%s\\EventLogs",
-		    outputdir);
-	  mkdir (logsoutdir);
-	  closedir (dhandle);
+          /* Create Logs directory on datastore */
+          DIR *dhandle;
+          dhandle = opendir (outputdir);
+          snprintf (logsoutdir, sizeof (logsoutdir), "%s\\EventLogs",
+                    outputdir);
+          mkdir (logsoutdir);
+          closedir (dhandle);
 
-	  /* Event logs capture */
-	  snprintf (logsget1, sizeof (logsget1),
-		    "C:\\Windows\\System32\\wevtutil.exe epl Application \
+          /* Event logs capture */
+          snprintf (logsget1, sizeof (logsget1),
+                    "C:\\Windows\\System32\\wevtutil.exe epl Application \
                     \"%s\\Application.evtx\"", logsoutdir);
-	  system (logsget1);
-	  snprintf (logsget2, sizeof (logsget2),
-		    "C:\\Windows\\System32\\wevtutil.exe epl Security \
+          system (logsget1);
+          snprintf (logsget2, sizeof (logsget2),
+                    "C:\\Windows\\System32\\wevtutil.exe epl Security \
                     \"%s\\Security.evtx\"", logsoutdir);
-	  system (logsget2);
-	  snprintf (logsget3, sizeof (logsget3),
-		    "C:\\Windows\\System32\\wevtutil.exe epl System \
+          system (logsget2);
+          snprintf (logsget3, sizeof (logsget3),
+                    "C:\\Windows\\System32\\wevtutil.exe epl System \
                     \"%s\\System.evtx\"", logsoutdir);
-	  system (logsget3);
+          system (logsget3);
 
-	  printf ("...done.\n\n");
-	  gettime ();
-	  logfile_a = fopen (logname, "a");
-	  fprintf (logfile_a, "        :logsget capture complete.\n");
-	  fclose (logfile_a);
-	  done = TRUE;
-	}
+          printf ("...done.\n\n");
+          gettime ();
+          logfile_a = fopen (logname, "a");
+          fprintf (logfile_a, "        :logsget capture complete.\n");
+          fclose (logfile_a);
+          done = TRUE;
+        }
       else
-	{
-	  printf ("You must enter a 'y' or 'n'\n");
-	  while ((ch = getchar ()) != '\n' && ch != EOF);
-	}
+        {
+          printf ("You must enter a 'y' or 'n'\n");
+          while ((ch = getchar ()) != '\n' && ch != EOF);
+        }
     }
 
   /* Flush input buffer */
