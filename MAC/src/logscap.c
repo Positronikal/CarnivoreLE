@@ -65,6 +65,9 @@ warnings.\n\n");
 	        fclose (logfile_a);
 
 	        /* Image logs directory */
+	        /* Runs both find and osxpmem elevated via a subshell,
+	        otherwise osxpmem lacks necessary priviledges. Unfortunately
+	        this also causes a segfault. */
 	        snprintf (imglogs1, sizeof (imglogs1), "/usr/bin/sudo /bin/sh \
                     -c \'/usr/bin/find /private/var/log -type f | \
                     ./thirdparty/osxpmem.app/osxpmem -i @ \
