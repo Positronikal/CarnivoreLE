@@ -40,20 +40,19 @@ About this repository:
      reconfigured each time finally arriving in it's current form of
      three separate target repos inside the main repo allowing each
      target to have it's own .cbp, dependent files, compiler
-     directives, etc. each resulting source file is cleaner and builds
-     result in fewer bugs that only appear for one target system, but
-     difficult to isolate.
+     directives, etc. Each resulting source file is cleaner and
+     building results in fewer bugs that may only appear for one target
+     system, but may be difficult to isolate.
   4. Commits happen only in the main repo which affects all target
-     repos (LIN, MAC, and LIN). Pull requests come from the devlop
-     branch only or temporary special branches that may be created from
-     time to time to address specific concerns or bugs. The
-     reorganizations that have happened (see #3) have resulted in the
-     commit history being a little wonky. Admittedly it's not ideal,
-     however it was much less painful to do it this way, all things
-     considered. It's not expected to cause any significant amount of
-     grief in the long run.
+     repos. Pull requests come from the devlop branch only or temporary
+     special branches that may be created from time to time to address
+     specific concerns or bugs. The reorganizations that have happened
+     (see #3) have resulted in the commit history being a little wonky.
+     Admittedly it's not ideal, however it was much less painful to do
+     it this way, all things considered. It's not expected to cause any
+     significant amount of grief in the long run.
 
-Details:
+Tab Details:
 
   Code tab = All commits, branches, releases, and contributors.
   Issues tab = Bug reports, feature requests, etc.
@@ -62,35 +61,34 @@ Details:
   Wiki = This project's wiki.
   Insights tab = Data visualizations and metric results.
 
-  You may find encounter bugs in this software, especially if this is a
-  maintenance release. Please see BUGS in this directory. If you do
-  encounter what you believe is a bug, please report it by filing an
-  issue. Your bug reports in the form of issues are valuable
-  contributions to Positronikal since they allow us to notice and fix
-  problems on machines we don't have or in code we don't use often. See
-  the file BUGS in this directory for more information on how to report
-  bugs.
+You may encounter bugs in this software, especially if this is a
+maintenance release. Please see BUGS in this directory. If you do
+encounter what you believe is a bug, please report it by filing an
+issue. Your bug reports in the form of issues are valuable
+contributions to Positronikal since they allow us to notice and fix
+problems on machines we don't have or in code we don't use often. See
+the file BUGS in this directory for more information on how to report
+bugs.
 
-  The software was built using Code::Blocks
-  (http://www.codeblocks.org/). Release binaries of platform-specific
-  implementations were compiled/linked using the following compilers:
-    * GNU GCC (https://gcc.gnu.org/) for GNU/Linux
-    * MinGW (http://www.mingw.org/) for Windows
-    * Clang (https://clang.llvm.org/) for Macintosh
+The software was built using Code::Blocks
+(http://www.codeblocks.org/). Release binaries of platform-specific
+implementations were compiled/linked using the following compilers:
+  * GNU GCC (https://gcc.gnu.org/) for GNU/Linux
+  * MinGW (http://www.mingw.org/) for Windows
+  * Clang (https://clang.llvm.org/) for Macintosh
 
-  Note that the LIN and WIN alphas was developed on a GNU/Linux
-  workstation (final alpha - Linux Mint 18.3) and the MAC alpha
-  happened on a Macintosh (final alpha - MacOS 10.13.4). WIN
-  development can probably proceed fine on a Windows workstation, but
-  MAC development should most likely remain on a OS X/MacOS
-  workstation.
+Note that the LIN and WIN alphas were developed on a GNU/Linux
+workstation (currently Linux Mint 18.3) and the MAC alpha happened on
+a Macintosh (currently MacOS 10.13.4). WIN development can probably
+proceed fine on a Windows workstation, but MAC development should
+most likely remain on a OS X/MacOS workstation.
 
-  All project files necessary to edit, add to, or build the same or
-  custom binaries using these tools are included in the repository
-  specific to the implementation. The file USING in this directory
-  contains information for both developers and practitioners.
-  carnivore.cbp is the main project file and is unique to each target
-  repo. See the /docs/ directory in any target repo.
+All project files necessary to edit, add to, or build the same or
+custom binaries using these tools are included in the repository
+specific to the implementation. The file USING in this directory
+contains information for both developers and practitioners.
+carnivore.cbp is the main project file and is unique to each target
+repo. See the docs/ directory in the main repo.
 
 Licensing information is contained in the file COPYING in this
 directory.
@@ -98,5 +96,5 @@ directory.
 Hoyt Harness/Positronikal
 hoyt.harness@gmail.com
 
-Rev: 20180515
+Rev: 20180524
 
