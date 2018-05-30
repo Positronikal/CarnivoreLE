@@ -41,7 +41,7 @@ nc_reaper ()
   done = FALSE;
   while (!done)
     {
-      printf ("Capture detailed network configuration data? /ifconfig.exe/ \
+      printf ("Capture detailed network configuration data? /ifconfig/ \
 [y/n]\n");
       ch = getchar ();
 
