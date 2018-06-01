@@ -35,49 +35,51 @@ logscap ()
 {
   int done;
   int ch;
-  char imglogs1[PATH_MAX];
-  char imglogs2[PATH_MAX];
+  char caplogs1[PATH_MAX];
+  char caplogs2[PATH_MAX];
+  char caplogs3[PATH_MAX];
 
   done = FALSE;
   while (!done)
     {
-      printf ("Image logs directories? [y/n]\n");
+      printf ("Capture system logs /tar, log/? [y/n]\n");
       ch = getchar ();
 
       if (ch == 'N' || ch == 'n')
 	      {
-	        printf ("Skipping logs directories imaging...\n\n");
+	        printf ("Skipping system logs capture...\n\n");
 	        gettime ();
 	        logfile_a = fopen (logname, "a");
-	        fprintf (logfile_a, "        :logscap imaging skipped.\n");
+	        fprintf (logfile_a, "        :logscap capture skipped.\n");
 	        fclose (logfile_a);
 	        done = TRUE;
 	      }
       else if (ch == 'Y' || ch == 'y')
 	      {
-	        printf ("Starting logs directories imaging ");
+	        printf ("Starting system logs capture ");
 	        printf ("(may take several minutes!)...\n");
-	        printf ("Files that are already in use may be locked and produce \
-warnings.\n\n");
+	        printf ("Files that are missing or in use may be locked and ");
+	        printf ("produce warnings. Capture uses /log/ which is only ");
+	        printf ("present on MacOS 10.12 and later. Running Carnivore ");
+	        printf ("on earlier systems will produce warnings. The two main ");
+	        printf ("logs locations will still be captured.\n\n");
 	        gettime ();
 	        logfile_a = fopen (logname, "a");
-	        fprintf (logfile_a, "        :logscap imaging started.\n");
+	        fprintf (logfile_a, "        :logscap capture started.\n");
 	        fclose (logfile_a);
 
-	        /* Image logs directory */
-	        /* Runs both find and osxpmem elevated via a subshell,
-	        otherwise osxpmem lacks necessary priviledges. Unfortunately
-	        this also causes a segfault. */
-	        snprintf (imglogs1, sizeof (imglogs1), "/usr/bin/sudo /bin/sh \
-                    -c \'/usr/bin/find /private/var/log -type f | \
-                    ./thirdparty/osxpmem.app/osxpmem -i @ \
-                    -o %s/img_logical.aff4 -c snappy\'", outputdir);
-	        system (imglogs1);
-	        snprintf (imglogs2, sizeof (imglogs2), "/usr/bin/sudo /bin/sh \
-                    -c \'/usr/bin/find /library/logs -type f | \
-                    ./thirdparty/osxpmem.app/osxpmem -i @ \
-                    -o %s/img_logical.aff4 -c snappy\'", outputdir);
-	        system (imglogs2);
+	        /* Capture system logs */
+	        snprintf (caplogs1, sizeof (caplogs1), "/usr/bin/sudo /usr/bin/tar \
+                   -jcvf %s/logscap_pvl.tar.bz2 /private/var/log", outputdir);
+	        system (caplogs1);
+	        snprintf (caplogs2, sizeof (caplogs2), "/usr/bin/sudo /usr/bin/tar \
+                   -jcvf %s/logscap_ll.tar.bz2 /library/logs", outputdir);
+	        system (caplogs2);
+	        /* MacOS 10.12 & later */
+	        printf ("Capture using /log/ is only present on MacOS 10.12 and later. This module may produce warnings ");
+	        snprintf (caplogs3, sizeof (caplogs3), "/usr/bin/sudo /usr/bin/log \
+                   collect --output %s", outputdir);
+	        system (caplogs3);
 
 	        printf ("...done.\n\n");
 	        gettime ();
