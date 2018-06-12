@@ -1,0 +1,29 @@
+CarnivoreLE long-term development:
+
+* Replace system() routines and native utility calls with explicit code
+where possible and/or practical.
+
+* Add encryption detection. A "//" comment stub exists in carnivore.c
+for this purpose.
+
+* Add page data capture:
+  - GNU/Linux swap partition
+  - OS X/MacOS swapfiles
+  - Windows pagefile/swapfile
+
+* Add hibernation/sleep data capture:
+  - OS X/MacOS sleepimage
+  - Windows hiberfil
+  - GNU/Linux swap
+
+* Add Windows registry capture.
+
+* Add backups capture, i.e. Timemachine, Timeshift, etc.
+
+* Refactor to Golang (static compilation) and reevaluate conditional
+compilation at that time.
+
+
+
+UPDATED: 20180611
+

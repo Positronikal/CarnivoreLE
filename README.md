@@ -93,6 +93,10 @@ repo. See the docs/ directory in the main repo.
 Licensing information is contained in the file COPYING in this
 directory.
 
+Development road map:
+
+  * See Issues for short-term and TODO for long-term.
+
 Hoyt Harness/Positronikal
 hoyt.harness@gmail.com
 
