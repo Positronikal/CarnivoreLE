@@ -32,12 +32,8 @@ extern char logname[PATH_MAX];
 int
 casedata ()
 {
-  char *ename = malloc (32);
-  char *agency = malloc (64);
-  char *num = malloc (32);
-  char *sname = malloc (32);
-
   /* Examiner's name */
+  char *ename = malloc (32 * sizeof (char));
   if (ename == NULL)
     {
       printf ("Not enough memory available.\n");
@@ -52,6 +48,7 @@ casedata ()
   free (ename);
 
   /* Examiner's agency */
+  char *agency = malloc (64 * sizeof (char));
   if (agency == NULL)
     {
       printf ("Not enough memory available.\n");
@@ -65,6 +62,7 @@ casedata ()
   free (agency);
 
   /* Case number */
+  char *num = malloc (32 * sizeof (char));
   if (num == NULL)
     {
       printf ("Not enough memory available.\n");
@@ -78,6 +76,7 @@ casedata ()
   free (num);
 
   /* Subject's name */
+  char *sname = malloc (32 * sizeof (char));
   if (sname == NULL)
     {
       printf ("Not enough memory available.\n");

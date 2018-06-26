@@ -25,7 +25,7 @@
 
 /* Constants */
 #define PROGNAME "CarnivoreLE for Macintosh"
-#define PROGVERS "0.0.14"
+#define PROGVERS "0.1.17"
 #define FALSE 0
 #define TRUE !FALSE
 
